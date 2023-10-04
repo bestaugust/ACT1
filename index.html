@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | webgl</title>
+    <title>Unity WebGL Player | DMJ</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="TemplateData/UnityProgress.js"></script>  
     <script src="Build/UnityLoader.js"></script>
+
     <script>
-      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/build.json", {onProgress: UnityProgress});
-      function Reset()
-      {
-          var canvas = document.getElementById("#canvas");//获取#canvas
-          var h=  document.documentElement.clientHeight;//获取body可见区域高度
-          var w =  document.documentElement.clientWidth;//获取body可见区域高度
-          var scale = 750/1334;
-          if (w/h > scale) {canvas.height=h;canvas.width=h*scale;}
-          if (w/h < scale) {canvas.height=w/scale;canvas.width=w;}
-      }
+      var unityInstance = UnityLoader.instantiate("gameContainer", "Build/DMJ_WebApp.json", {onProgress: UnityProgress});
     </script>
+
   </head>
-  <body onload="Reset()" onresize="Reset()">
-    <div class="webgl-content" style="width: 100%; height: 100%">
-      <div id="gameContainer" style="width: 100%; height: 100%"></div>
-      <!-- <div class="footer">
+
+  <!-- 调用 OnResize方法, 当用户改变浏览器尺寸时, 屏幕会自适应 -->
+  <body style="style="margin:0px ; padding:0px;overflow:hidden" onResize="ChangeCanvas()">
+    <div class="webgl-content">
+
+      <!-- 设置长宽都是百分百填充 -->
+      <div id="unityContainer" style="width:100%; height:100%"></div>
+
+      <!-- 底部的显示条，不需要的话直接删掉-->
+      <div class="footer">
         <div class="webgl-logo"></div>
         <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
-        <div class="title">webgl</div>
-      </div> -->
+        <div class="title">DMJ</div>
+      </div>
+      
     </div>
+    <!--添加自动设置分辨率的方法-->
+    <script type="text/javascript">
+      function ChangeCanvas()
+      {
+        <!-- document.getElementById("unityInstance").style.width = window.innerWidth + "px";-->
+        <!-- document.getElementById("unityInstance").style.height = window.innerHeight + "px"; -->
+         document.getElementById("#canvas").style.width = window.innerWidth + "px";
+         document.getElementById("#canvas").style.height = window.innerHeight + "px";
+      }
+    </script>
   </body>
+
 </html>
