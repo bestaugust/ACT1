@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
@@ -27,3 +28,51 @@
     </a-scene>
   </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | DMJ</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>  
+    <script src="Build/UnityLoader.js"></script>
+
+    <script>
+      var unityInstance = UnityLoader.instantiate("gameContainer", "Build/DMJ_WebApp.json", {onProgress: UnityProgress});
+    </script>
+
+  </head>
+
+  <!-- 调用 OnResize方法, 当用户改变浏览器尺寸时, 屏幕会自适应 -->
+  <body style="style="margin:0px ; padding:0px;overflow:hidden" onResize="ChangeCanvas()">
+    <div class="webgl-content">
+
+      <!-- 设置长宽都是百分百填充 -->
+      <div id="unityContainer" style="width:100%; height:100%"></div>
+
+      <!-- 底部的显示条，不需要的话直接删掉-->
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">DMJ</div>
+      </div>
+      
+    </div>
+    <!--添加自动设置分辨率的方法-->
+    <script type="text/javascript">
+      function ChangeCanvas()
+      {
+        <!-- document.getElementById("unityInstance").style.width = window.innerWidth + "px";-->
+        <!-- document.getElementById("unityInstance").style.height = window.innerHeight + "px"; -->
+         document.getElementById("#canvas").style.width = window.innerWidth + "px";
+         document.getElementById("#canvas").style.height = window.innerHeight + "px";
+      }
+    </script>
+  </body>
+
+</html>
+>>>>>>> d0236580ae5f8221f08f66353bbb2f60b6b87f72
